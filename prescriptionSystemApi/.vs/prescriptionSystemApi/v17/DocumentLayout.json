@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\desktop\\prescriptionsystem\\prescriptionsystemapi\\prescriptionsystemapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\desktop\\prescriptionsystem\\prescriptionsystemapi\\prescriptionsystemapi\\source\\svc\\iprescriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\source\\svc\\iprescriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\desktop\\prescriptionsystem\\prescriptionsystemapi\\prescriptionsystemapi\\controllers\\prescriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\controllers\\prescriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\desktop\\prescriptionsystem\\prescriptionsystemapi\\prescriptionsystemapi\\source\\svc\\prescriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\source\\svc\\prescriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\desktop\\prescriptionsystem\\prescriptionsystemapi\\prescriptionsystemapi\\source\\db\\prescriptionaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\source\\db\\prescriptionaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\appsettings.json",
+              "RelativeDocumentMoniker": "prescriptionSystemApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\appsettings.json",
+              "RelativeToolTip": "prescriptionSystemApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-25T14:00:31.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IPrescriptionService.cs",
+              "DocumentMoniker": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\source\\svc\\IPrescriptionService.cs",
+              "RelativeDocumentMoniker": "prescriptionSystemApi\\source\\svc\\IPrescriptionService.cs",
+              "ToolTip": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\source\\svc\\IPrescriptionService.cs",
+              "RelativeToolTip": "prescriptionSystemApi\\source\\svc\\IPrescriptionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T18:36:45.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PrescriptionService.cs",
+              "DocumentMoniker": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\source\\svc\\PrescriptionService.cs",
+              "RelativeDocumentMoniker": "prescriptionSystemApi\\source\\svc\\PrescriptionService.cs",
+              "ToolTip": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\source\\svc\\PrescriptionService.cs",
+              "RelativeToolTip": "prescriptionSystemApi\\source\\svc\\PrescriptionService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T15:15:51.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrescriptionController.cs",
+              "DocumentMoniker": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
+              "RelativeDocumentMoniker": "prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
+              "ToolTip": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
+              "RelativeToolTip": "prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwDsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T15:25:47.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PrescriptionAccess.cs",
+              "DocumentMoniker": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\source\\db\\PrescriptionAccess.cs",
+              "RelativeDocumentMoniker": "prescriptionSystemApi\\source\\db\\PrescriptionAccess.cs",
+              "ToolTip": "C:\\Users\\focus\\Desktop\\prescriptionSystem\\prescriptionSystemApi\\prescriptionSystemApi\\source\\db\\PrescriptionAccess.cs",
+              "RelativeToolTip": "prescriptionSystemApi\\source\\db\\PrescriptionAccess.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwC0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T12:01:12.487Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
