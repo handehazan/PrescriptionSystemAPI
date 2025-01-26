@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "mELtXC2rLk2/AXFIrSTA8tbDce6ynIMF7hvJDNCjYe4=",
+  "Source": "prescriptionSystemApi",
+  "BasePath": "_content/prescriptionSystemApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
