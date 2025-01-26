@@ -1,15 +1,19 @@
-﻿using prescriptionSystemApi.model;
+﻿using MongoDB.Bson.IO;
+using prescriptionSystemApi.model;
 using prescriptionSystemApi.model.dto;
 using prescriptionSystemApi.source.db;
+using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace prescriptionSystemApi.source.svc
 {
     public class PrescriptionService: IPrescriptionService
     {
         private readonly PrescriptionAccess _prescriptionAccess;
-        public PrescriptionService(PrescriptionAccess prescriptionAccess)
+        private readonly RabbitmqService _rabbitmqService;
+        public PrescriptionService(PrescriptionAccess prescriptionAccess,RabbitmqService rabbitmqService)
         {
             _prescriptionAccess = prescriptionAccess;
+            _rabbitmqService = rabbitmqService;
         }
         public async Task<Prescription> CreatePrescriptionAsync(CreatePrescriptionDto dto)
         {
@@ -58,6 +62,20 @@ namespace prescriptionSystemApi.source.svc
             var prescribedMedicineNames = prescriptionMedicines.Select(m => m.MedicineName).ToList();
              
             var missingMedicines = prescribedMedicineNames.Except(dto.MedicinesGiven,StringComparer.OrdinalIgnoreCase).ToList();
+
+            if (missingMedicines.Any())
+            {
+                var message = new
+                {
+                    pharmacyName = dto.pharmacyName,
+                    prescriptionId = dto.prescriptionId,
+                    missingMedicines = missingMedicines,
+                };
+                //convert this message to the JSON
+                var jsonMsg = JsonConvert.SerializeObject(message);
+
+                _rabbitmqService.PublishMessage("missing-medicine",jsonMsg);
+            }
 
             await _prescriptionAccess.MarkPrescriptionAsSubmittedAsync(dto.prescriptionId);
 

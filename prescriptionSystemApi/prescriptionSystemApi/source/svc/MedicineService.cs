@@ -1,10 +1,14 @@
 ﻿using ExcelDataReader;
 using HtmlAgilityPack;
+using Microsoft.Extensions.Caching.Distributed;
+using MongoDB.Bson.IO;
 using prescriptionSystemApi.model;
 using prescriptionSystemApi.source.db;
+using StackExchange.Redis;
 using System.Data;
 using System.Globalization;
 using System.Text;
+using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace prescriptionSystemApi.source.svc
 {
@@ -12,10 +16,14 @@ namespace prescriptionSystemApi.source.svc
     {
         private readonly MedicineAccess _medicineAccess;
         private readonly HttpClient _httpClient;
-        public MedicineService(MedicineAccess medicineAccess, HttpClient httpClient)
+        private readonly IDistributedCache _cache;
+        private readonly IConnectionMultiplexer _redis;
+        public MedicineService(MedicineAccess medicineAccess, HttpClient httpClient,IDistributedCache cache, IConnectionMultiplexer redis)
         {
             _medicineAccess = medicineAccess;
             _httpClient = httpClient;
+            _cache = cache;
+            _redis = redis;
         }
 
         public async Task<List<Medicine>> GetAllMedicinesAsync()
@@ -264,7 +272,46 @@ namespace prescriptionSystemApi.source.svc
 
         public async Task<List<string>> SearchMedicineNamesAsync(string prefix)
         {
-            return await _medicineAccess.SearchMedicineNamesAsync(prefix);
+            var cacheKey = $"medicine_search_{prefix}";
+            var cachedResult = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedResult))
+            {
+                Console.WriteLine($"Cache hit for: {prefix}");
+                return JsonConvert.DeserializeObject<List<string>>(cachedResult);
+            }
+
+            Console.WriteLine($"Cache miss for: {prefix}");
+            var results = await _medicineAccess.SearchMedicineNamesAsync(prefix);
+
+            if (results.Any())
+            {
+                var serializedResult = JsonConvert.SerializeObject(results);
+                await _cache.SetStringAsync(cacheKey, serializedResult, new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                });
+            }
+            return results;
+        }
+
+        public async Task TrackMEdicineUsageAsync(string medicineName)
+        {
+            var db = _redis.GetDatabase();
+            var key = "frequently_used_medicines";
+
+            // Add the medicine name to the Redis Set
+            await db.SetAddAsync(key, medicineName);
+            Console.WriteLine($"Tracked medicine usage: {medicineName}");
+        }
+        public async Task<List<string>> GetFrequentlyUsedMedicinesAsync()
+        {
+            var db = _redis.GetDatabase();
+            var key = "frequently_used_medicines";
+
+            // Retrieve all items in the Redis Set
+            var medicines = await db.SetMembersAsync(key);
+            return medicines.Select(m => m.ToString()).ToList();
         }
     }
 }

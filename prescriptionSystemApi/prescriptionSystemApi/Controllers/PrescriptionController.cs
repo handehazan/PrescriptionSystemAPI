@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using prescriptionSystemApi.model.dto;
 using prescriptionSystemApi.source.svc;
 
 namespace prescriptionSystemApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class PrescriptionController : ControllerBase
     {
         private readonly IPrescriptionService _service;
@@ -16,6 +18,7 @@ namespace prescriptionSystemApi.Controllers
 
 
         [HttpPost("CreatePrescription")]
+        [Authorize]
         public async Task<IActionResult> CreatePrescription([FromBody] CreatePrescriptionDto dto)
         {
             if (dto == null || dto.Medicines == null || dto.Medicines.Count == 0)
@@ -55,6 +58,7 @@ namespace prescriptionSystemApi.Controllers
         }
 
         [HttpPost("submit")]
+        [Authorize]
         public async Task<IActionResult> SubmitPrescription([FromBody] SubmitPrescriptionDto dto)
         {
             try

@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "prescriptionSystemApi",
-    "version": "1.0"
+    "title": "PrescriptionAPI",
+    "description": "API Documentation with JWT Authorization",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/login": {
@@ -36,7 +37,7 @@
         }
       }
     },
-    "/api/Medicine": {
+    "/api/v{version}/Medicine": {
       "get": {
         "tags": [
           "Medicine"
@@ -59,24 +60,11 @@
               "format": "int32",
               "default": 10
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Medicine/SearchMedicine": {
-      "get": {
-        "tags": [
-          "Medicine"
-        ],
-        "parameters": [
+          },
           {
-            "name": "prefix",
-            "in": "query",
+            "name": "version",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -89,10 +77,45 @@
         }
       }
     },
-    "/api/Medicine/dowload-excel": {
+    "/api/v{version}/Medicine/SearchMedicine": {
       "get": {
         "tags": [
           "Medicine"
+        ],
+        "parameters": [
+          {
+            "name": "prefix",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -101,7 +124,29 @@
         }
       }
     },
-    "/api/Medicine/test-parse": {
+    "/api/v{version}/Medicine/dowload-excel": {
+      "get": {
+        "tags": [
+          "Medicine"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v{version}/Medicine/test-parse": {
       "get": {
         "tags": [
           "Medicine"
@@ -124,6 +169,14 @@
               "format": "int32",
               "default": 4
             }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -133,11 +186,21 @@
         }
       }
     },
-    "/api/Medicine/refresh": {
+    "/api/v{version}/Medicine/refresh": {
       "post": {
         "tags": [
           "Medicine"
         ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -145,10 +208,86 @@
         }
       }
     },
-    "/api/Prescription/CreatePrescription": {
+    "/api/v{version}/Notification/start-listening": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v{version}/Notification/send-emails": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v{version}/Notification/process-and-sendmail": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v{version}/Prescription/CreatePrescription": {
       "post": {
         "tags": [
           "Prescription"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -176,7 +315,7 @@
         }
       }
     },
-    "/api/Prescription/{patientTC}": {
+    "/api/v{version}/Prescription/{patientTC}": {
       "get": {
         "tags": [
           "Prescription"
@@ -184,6 +323,14 @@
         "parameters": [
           {
             "name": "patientTC",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
             "in": "path",
             "required": true,
             "schema": {
@@ -198,7 +345,7 @@
         }
       }
     },
-    "/api/Prescription/medicines/{prescriptionId}": {
+    "/api/v{version}/Prescription/medicines/{prescriptionId}": {
       "get": {
         "tags": [
           "Prescription"
@@ -212,6 +359,14 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -221,10 +376,20 @@
         }
       }
     },
-    "/api/Prescription/submit": {
+    "/api/v{version}/Prescription/submit": {
       "post": {
         "tags": [
           "Prescription"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -325,6 +490,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Enter 'Bearer' [space] and then your valid JWT token.",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

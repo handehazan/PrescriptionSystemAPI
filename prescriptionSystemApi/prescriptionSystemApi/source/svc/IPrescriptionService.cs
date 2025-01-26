@@ -10,6 +10,7 @@ namespace prescriptionSystemApi.source.svc
         public Task<List<Prescription>> GetPrescriptionByPatientTCAsync(string patientTC);
         public Task<List<PrescriptionMedicines>> GetMedicinesByPrescriptionIdAsync(int prescriptionId);
         public Task<SubmitPrescriptionResponseDto> SubmitPrescriptionAsync(SubmitPrescriptionDto dto);
+        
 
     }
 }

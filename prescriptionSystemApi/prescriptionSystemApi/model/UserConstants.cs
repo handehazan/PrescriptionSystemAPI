@@ -8,8 +8,8 @@
             new User() { Id = 2,Name = "x",Username = "doctor2",Password = "pass", Role="doctor"},
             new User() { Id = 3,Name = "hande",Username = "doctor3",Password = "pass", Role="doctor"},
 
-            new User() { Id = 4,Name = "DURU Eczane",Username = "phar1",Password = "pass",Email="handehkeskin@hotmail.com", Role="pharmacy"},
-            new User() { Id = 5,Name = "p2",Username = "phar2",Password = "pass",Email="nomail@hotmail.com", Role="pharmacy"},
+            new User() { Id = 4,Name = "HANDE Ecz",Username = "phar1",Password = "pass",Email="handehkeskin@hotmail.com", Role="pharmacy"},
+            new User() { Id = 5,Name = "ERDİN Ecz",Username = "phar2",Password = "pass",Email="erdinkeskin@hotmail.com", Role="pharmacy"},
             new User() { Id = 6,Name = "p3",Username = "phar3",Password = "pass", Email="nomail2@hotmail.com",Role="pharmacy"}
         };
     }

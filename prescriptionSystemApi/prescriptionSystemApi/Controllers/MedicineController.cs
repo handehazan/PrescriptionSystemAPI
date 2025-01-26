@@ -5,8 +5,9 @@ using prescriptionSystemApi.source.svc;
 
 namespace prescriptionSystemApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class MedicineController : ControllerBase
     {
         private readonly MedicineService _medicineService;
@@ -17,8 +18,8 @@ namespace prescriptionSystemApi.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAll(
-     [FromQuery] int page = 1,       // Default to page 1
-     [FromQuery] int pageSize = 10)  // Default to 10 items per page
+     [FromQuery] int page = 1,      
+     [FromQuery] int pageSize = 10) 
         {
             // Validate input
             if (page < 1 || pageSize < 1)
@@ -50,15 +51,32 @@ namespace prescriptionSystemApi.Controllers
         }
 
         [HttpGet("SearchMedicine")]
-        public async Task<IActionResult> SearchMedicines([FromQuery] string prefix)
+        public async Task<IActionResult> SearchMedicines([FromQuery] string prefix, [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 10)
         {
             if (string.IsNullOrEmpty(prefix))
             {
                 return BadRequest("Search term is empty.");
             }
+            if (page < 1 || pageSize < 1)
+            {
+                return BadRequest("Page and pageSize must be greater than 0.");
+            }
 
             var medicationNames = await _medicineService.SearchMedicineNamesAsync(prefix);
-            return Ok(new { medicationNames });
+            var totalCount = medicationNames.Count;
+            var paginatedResults = medicationNames
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            return Ok(new
+            {
+                TotalCount = totalCount,
+                Page = page,
+                PageSize = pageSize,
+                Data = paginatedResults
+            });
         }
 
         [HttpGet("dowload-excel")]

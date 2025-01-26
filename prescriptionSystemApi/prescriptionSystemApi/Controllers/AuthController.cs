@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using prescriptionSystemApi.model;
@@ -66,7 +64,11 @@ namespace prescriptionSystemApi.Controllers
                claims: claims,
                expires: DateTime.Now.AddHours(1),
                signingCredentials: credentials);
-
+            Console.WriteLine("Generating token with claims:");
+            foreach (var claim in claims)
+            {
+                Console.WriteLine($"{claim.Type}: {claim.Value}");
+            }
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
         
