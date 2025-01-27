@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prescriptionSystemApi", "prescriptionSystemApi\prescriptionSystemApi.csproj", "{916DF8E0-237E-43D0-B70B-56089A00908A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrescriptionSystemGateway", "PrescriptionSystemGateway\PrescriptionSystemGateway.csproj", "{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{916DF8E0-237E-43D0-B70B-56089A00908A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916DF8E0-237E-43D0-B70B-56089A00908A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916DF8E0-237E-43D0-B70B-56089A00908A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
