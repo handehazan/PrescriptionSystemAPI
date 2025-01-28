@@ -23,7 +23,10 @@ namespace prescriptionSystemApi.source.svc
         public void StartListening()
         {
             Console.WriteLine("Started listening to the RabbitMQ queue...");
-            _rabbitmqService.ConsumeMessage("missing-medicine", ProcessMessage);
+            _rabbitmqService.ConsumeMessage("missing-medicine", async (message) =>
+            {
+                await Task.Run(() => ProcessMessage(message)); // Ensure async processing
+            });
         }
 
         public void ProcessMessage(string message)

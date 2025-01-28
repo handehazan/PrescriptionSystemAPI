@@ -289,7 +289,7 @@ namespace prescriptionSystemApi.source.svc
                 var serializedResult = JsonConvert.SerializeObject(results);
                 await _cache.SetStringAsync(cacheKey, serializedResult, new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(60)
                 });
             }
             return results;
