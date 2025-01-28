@@ -6,7 +6,7 @@ using System.Text;
 using IModel = RabbitMQ.Client.IModel;
 namespace prescriptionSystemApi.source.svc
 {
-    public class RabbitmqService
+    public class RabbitmqService : IDisposable
     {
         private readonly IConnection _connection;
         private readonly IModel _channel;
@@ -17,7 +17,10 @@ namespace prescriptionSystemApi.source.svc
             {
                 HostName = configuration["RabbitMQ:HostName"],
                 UserName = configuration["RabbitMQ:UserName"],
-                Password = configuration["RabbitMQ:Password"]
+                Password = configuration["RabbitMQ:Password"],
+                DispatchConsumersAsync = true, // Enables async consumers for better performance
+                AutomaticRecoveryEnabled = true, // Enables auto-reconnect in case of failure
+                NetworkRecoveryInterval = TimeSpan.FromSeconds(10) // Retry every 10 sec if disconnected
             };
 
             _connection = factory.CreateConnection();
@@ -32,12 +35,15 @@ namespace prescriptionSystemApi.source.svc
                 arguments: null
             );
             var body = Encoding.UTF8.GetBytes(message);
+            var properties = _channel.CreateBasicProperties();
+            properties.Persistent = true; // Ensures messages are saved to disk
 
             _channel.BasicPublish(exchange: "",
                 routingKey: queueName,
                 basicProperties: null,
                 body: body
             );
+            Console.WriteLine($"Message published to {queueName}: {message}");
         }
 
         public void ConsumeMessage(string queueName, Action<string> processMessage)
@@ -49,14 +55,23 @@ namespace prescriptionSystemApi.source.svc
                 arguments: null
             );
 
-            var consumer = new EventingBasicConsumer(_channel);
-            consumer.Received += (model, eventArgs) =>
+            var consumer = new AsyncEventingBasicConsumer(_channel);
+            consumer.Received += async (model, eventArgs) =>
             {
                 var body = eventArgs.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-
-                processMessage(message);
-                _channel.BasicAck(eventArgs.DeliveryTag, false);
+                try
+                {
+                    Console.WriteLine($"Received message from {queueName}: {message}");
+                    processMessage(message);
+                    _channel.BasicAck(eventArgs.DeliveryTag, false);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error processing message: {ex.Message}");
+                    // Optionally, reject the message and requeue it for later processing
+                    _channel.BasicNack(eventArgs.DeliveryTag, false, true);
+                }
             };
 
             _channel.BasicConsume(queue: queueName,
@@ -67,8 +82,19 @@ namespace prescriptionSystemApi.source.svc
 
         public void Dispose()
         {
-            _channel?.Close();
-            _connection?.Close();
+            if (_channel != null && _channel.IsOpen)
+            {
+                _channel.Close();
+                _channel.Dispose();
+            }
+
+            if (_connection != null && _connection.IsOpen)
+            {
+                _connection.Close();
+                _connection.Dispose();
+            }
+
+            Console.WriteLine("RabbitMQ connection closed.");
         }
 
 
