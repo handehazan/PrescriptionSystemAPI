@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrescriptionSystemGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07bd7c11a3c22d328edc25075507b677158a25bc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52b76f4ae174519b6e832ab918b138e34725f7d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrescriptionSystemGateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrescriptionSystemGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

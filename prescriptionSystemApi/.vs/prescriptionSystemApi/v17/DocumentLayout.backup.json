@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}|PrescriptionSystemGateway\\PrescriptionSystemGateway.csproj|solutionrelative:prescriptionsystemgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\documents\\github\\prescriptionsystemapi\\prescriptionsystemapi\\prescriptionsystemapi\\controllers\\prescriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\controllers\\prescriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}|PrescriptionSystemGateway\\PrescriptionSystemGateway.csproj|c:\\users\\focus\\documents\\github\\prescriptionsystemapi\\prescriptionsystemapi\\prescriptionsystemgateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}|PrescriptionSystemGateway\\PrescriptionSystemGateway.csproj|solutionrelative:prescriptionsystemgateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\documents\\github\\prescriptionsystemapi\\prescriptionsystemapi\\prescriptionsystemapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|c:\\users\\focus\\documents\\github\\prescriptionsystemapi\\prescriptionsystemapi\\prescriptionsystemapi\\controllers\\prescriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{916DF8E0-237E-43D0-B70B-56089A00908A}|prescriptionSystemApi\\prescriptionSystemApi.csproj|solutionrelative:prescriptionsystemapi\\controllers\\prescriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CC72546-EC5B-49EB-A1FD-FB00DC6705BD}|PrescriptionSystemGateway\\PrescriptionSystemGateway.csproj|c:\\users\\focus\\documents\\github\\prescriptionsystemapi\\prescriptionsystemapi\\prescriptionsystemgateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\prescriptionSystemApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "prescriptionSystemApi\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\prescriptionSystemApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "prescriptionSystemApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwB0AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T19:29:51.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PrescriptionController.cs",
               "DocumentMoniker": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
               "RelativeDocumentMoniker": "prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
@@ -38,12 +55,11 @@
               "RelativeToolTip": "prescriptionSystemApi\\Controllers\\PrescriptionController.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAQwDwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T18:40:28.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T18:40:28.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\PrescriptionSystemGateway\\appsettings.json",
               "RelativeDocumentMoniker": "PrescriptionSystemGateway\\appsettings.json",
@@ -51,18 +67,17 @@
               "RelativeToolTip": "PrescriptionSystemGateway\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-27T17:32:25.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T17:32:25.57Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\PrescriptionSystemGateway\\Program.cs",
               "RelativeDocumentMoniker": "PrescriptionSystemGateway\\Program.cs",
               "ToolTip": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\PrescriptionSystemGateway\\Program.cs",
               "RelativeToolTip": "PrescriptionSystemGateway\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T15:20:26.585Z",
               "EditorCaption": ""
@@ -75,7 +90,7 @@
               "RelativeDocumentMoniker": "PrescriptionSystemGateway\\ocelot.json",
               "ToolTip": "C:\\Users\\focus\\Documents\\GitHub\\PrescriptionSystemAPI\\prescriptionSystemApi\\PrescriptionSystemGateway\\ocelot.json",
               "RelativeToolTip": "PrescriptionSystemGateway\\ocelot.json",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAACoAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-01-27T14:55:51.867Z",
               "EditorCaption": ""

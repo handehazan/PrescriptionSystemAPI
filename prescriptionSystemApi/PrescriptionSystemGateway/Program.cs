@@ -27,8 +27,19 @@ builder.Services.AddAuthentication("JwtBearer")
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])) // Loaded from appsettings.json
         };
     });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
+
+// Enable CORS
+app.UseCors("AllowAll");
 
 // Middleware pipeline
 app.UseHttpsRedirection();
