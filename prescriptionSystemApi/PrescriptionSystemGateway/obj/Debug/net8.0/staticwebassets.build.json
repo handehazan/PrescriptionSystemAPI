@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "suluKSN/xtS3hyRZtsCcYGhq75aonsWquQ1thloMCO8=",
+  "Source": "PrescriptionSystemGateway",
+  "BasePath": "_content/PrescriptionSystemGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
