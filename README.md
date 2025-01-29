@@ -1,23 +1,34 @@
 # Prescription & Doctor Visit System
+The Prescription & Doctor Visit System is a cloud-based web application designed to streamline prescription management for doctors, pharmacies, and patients. The system allows doctors to issue prescriptions, pharmacies to validate and fulfill prescriptions, and pharmacies to receive notifications about their missing submissions.
 
 ## 📌 Project Overview
+
 The **Prescription & Doctor Visit System** is a web-based solution that facilitates:
+
 - Storing and managing **prescriptions** issued by doctors.
 - Managing **medicine records** in a NoSQL database.
 - Sending **notifications** to patients and pharmacies.
-- Handling **authentication** for users.
+- Handling **authentication** for users using **JWT tokens**.
 - **RabbitMQ integration** for message-based communication.
 - **API Gateway** using Ocelot for routing and request handling.
 - **Frontend application** for doctors and pharmacies, deployed via **Azure Static Web Apps**.
 
 This system ensures smooth prescription management and medicine tracking by integrating **Azure SQL Database**, **MongoDB Atlas**, **Azure Cache for Redis**, **CloudAMQP (RabbitMQ)**, **Azure Static Web Apps**, and **Azure Logic Apps** for automation.
 
+
+🔗 **You can reach the web site through this link:** https://wonderful-river-0db27400f.4.azurestaticapps.net/index.html
+
 🔗 **You can reach the frontend repository through this link:** [Prescription System Frontend](https://github.com/handehazan/PrescriptionSysemFrontend)
+
+🔗 **You can reach the swagger through this link:** https://prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net/index.html
+
+🎥 **Watch the project walkthrough here:** [Project Video](https://youtu.be/Nrh2yDSBDUU)
 
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend:** React.js (deployed via Azure Static Web Apps)
+
+- **Frontend:** HTML, CSS, JavaScript (deployed via Azure Static Web Apps)
 - **Backend:** .NET 8 Web API
 - **API Gateway:** Ocelot
 - **Database:**
@@ -28,18 +39,52 @@ This system ensures smooth prescription management and medicine tracking by inte
 - **Automation:** Azure Logic Apps
   - **Email Notifications:** Sends emails daily at 1 AM.
   - **Medicine Data Refresh:** Refreshes MongoDB medicines every two weeks on Sundays at 22:00.
-- **Authentication:** JWT (JSON Web Token)
-- **ORM:** Entity Framework Core
+- **Authentication:** JWT (JSON Web Token) for secure API access.
 - **Web Scraping:** HtmlAgilityPack
 - **Excel Parsing:** ExcelDataReader
 - **Dependency Injection:** .NET Core built-in DI
-- **Logging:** Serilog
+
+---
+
+## 💼 Medicine Data Handling
+
+### **Why We Need to Handle Medicine Data Manually**
+- There is no **medicine lookup service** provided by **Sağlık Bakanlığı**.
+- The official **medicine list** is published **weekly** at [TİTCK](https://www.titck.gov.tr/dinamikmodul/43).
+- To ensure **searchability**, we implemented a **REST API** that allows querying medicine names.
+- Example: Searching for medicines containing `ASP` should return:
+  ```json
+  {
+    "medicationNames":"ASPIRIN", "CASPOBIEM", "CASPOPOL", "CORASPIN", "SIGMASPORIN", "VASPARIN" ...
+  }
+  ```
+- A **web scraping service** downloads the latest medicine file, parses it, and uploads it to MongoDB.
+
+---
+
+## 🏥 User Authentication & Testing Credentials
+
+This system uses **JWT authentication**. The following **test users** can be used to access different roles:
+
+### **Doctor Account**
+```
+Username: doctor1 Password: pass Role: doctor Name: Şükrü
+```
+
+### **Pharmacy Account**
+```
+Username: phar3 Password: pass Role: pharmacy Name: p3 Email: nomail2@hotmail.com
+```
+
+Use these credentials to test login functionality and role-based access control.
 
 ---
 
 ## 📂 Project Architecture
+
 This system is structured as a **multi-layered application**, with clear separation between:
-1. **Frontend** – React-based UI for doctors and pharmacies.
+
+1. **Frontend** – HTML, CSS, JavaScript UI for doctors and pharmacies.
 2. **Controllers** – Handles HTTP requests.
 3. **Services** – Implements business logic.
 4. **Data Access Layer (DAL)** – Handles database interactions.
@@ -48,72 +93,44 @@ This system is structured as a **multi-layered application**, with clear separat
 7. **Message Queue (RabbitMQ via CloudAMQP)** – Asynchronous communication.
 8. **Caching Layer (Azure Redis)** – Caches frequently used medicines.
 9. **Web Scraping & Data Parsing** – Downloads and processes medicine data.
-10. **API Gateway (Ocelot)** – Handles request routing.
+10. **API Gateway (Ocelot)** – Handles request routing and load balancing.
 11. **Azure Logic Apps** – Automates scheduled tasks.
 
-### 🔹 **Key Components**
-| Layer        | Component                       | Description |
-|-------------|--------------------------------|-------------|
-| **Frontend** | React.js | UI for doctors and pharmacies deployed via Azure Static Web Apps |
-| **Controllers** | MedicineController | Manages medicine-related endpoints with pagination and search |
-|  | NotificationController | Handles sending and retrieving notifications via RabbitMQ |
-|  | PrescriptionController | Manages prescription creation, retrieval, and submission |
-|  | AuthController | Handles authentication (JWT-based login) |
-| **Services** | MedicineService | Business logic for medicines, web scraping, and Redis caching |
-|  | NotificationService | Manages message notifications and pharmacy alerts via RabbitMQ |
-|  | PrescriptionService | Handles prescription operations, medicine assignments, and interactions with RabbitMQ |
-|  | RabbitMQService | Publishes and subscribes to events via RabbitMQ |
-| **Access Layer** | MedicineAccess | Handles MongoDB operations for medicines |
-|  | PrescriptionAccess | Handles SQL-based prescription management |
-| **Contexts** | NoSqlContext | MongoDB Atlas connection setup |
-|  | SqlDbContext | Azure SQL Database context |
-| **Automation** | Azure Logic Apps | Automates email notifications and medicine data refresh |
-| **API Gateway** | Ocelot | Routes API requests and manages authentication |
+---
+
+## 📊 ER Diagram
+
+Below is the **Entity-Relationship Diagram (ERD)** for the **Prescription System**, showing the relationships between **Prescriptions** and **Medicines**.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/08f55ddb-75d0-4c44-b24a-5bbe0fdd46b0" width="600">
+</p>
 
 ---
 
-## 📡 API Gateway Configuration (Ocelot)
-The API Gateway is configured using **Ocelot** to route and manage API requests. The gateway exposes simplified upstream endpoints while forwarding requests to the appropriate backend services.
+## 📸 Screenshots of the frontend
 
-### **Ocelot Route Mappings**
-| Upstream Endpoint | Downstream Endpoint | HTTP Method | Authentication |
-|------------------|--------------------|-------------|---------------|
-| `/auth/login` | `/api/auth/login` | POST | No |
-| `/medicine/search` | `/api/v1/medicine/SearchMedicine` | GET | No |
-| `/prescription/create` | `/api/v1/prescription/CreatePrescription` | POST | Yes (JWT) |
-| `/prescription/{patientTC}` | `/api/v1/prescription/{patientTC}` | GET | No |
-| `/prescription/medicines/{prescriptionId}` | `/api/v1/prescription/medicines/{prescriptionId}` | GET | No |
-| `/prescription/submit` | `/api/v1/prescription/submit` | POST | Yes (JWT) |
+| Login Page | Doctor Dashboard | Pharmacy Dashboard |
+|------------|----------------|----------------|
+| ![Login](https://github.com/user-attachments/assets/0979ea52-6153-47a8-8d26-ec007e7633be) | ![Doctor](https://github.com/user-attachments/assets/ab19390a-794c-4c7c-b081-742fdb5e4969) | ![Pharmacy](https://github.com/user-attachments/assets/bccb89e3-2666-45ba-af92-fab7aa71ad5c) |
 
-**Base Gateway URL:** `https://prescriptionservicegateway-egfnhudhbwbnh5ct.canadacentral-01.azurewebsites.net`
+
+
+
 
 ---
 
-## 📩 Cloud Services Integration
-### **RabbitMQ via CloudAMQP**
-This system uses **RabbitMQ** hosted on **CloudAMQP** for messaging. The `RabbitMQService` ensures:
-- **Event-based communication** between services.
-- **Asynchronous handling** of missing medicine alerts to pharmacies.
-
-### **Azure Cache for Redis**
-Redis is used to cache frequently searched medicines.
-
-### **Azure Logic Apps**
-Azure Logic Apps handle:
-1. **Email Notifications** – Triggers a **daily HTTP request at 1 AM** to notify pharmacies.
-2. **Medicine Data Refresh** – Triggers a **HTTP request every two weeks on Sundays at 22:00** to refresh MongoDB data.
-
----
-
-## ⚙️ Installation & Setup
+## 🛋️ Deployment & Setup
 
 ### 1️⃣ **Clone the Repository**
+
 ```bash
 git clone https://github.com/your-username/prescription-system.git
 cd prescription-system
 ```
 
 ### 2️⃣ **Run the Application**
+
 ```bash
 dotnet run
 ```
@@ -121,7 +138,9 @@ dotnet run
 ---
 
 ## 🤝 Contributing
+
 We welcome contributions! To contribute:
+
 1. **Fork** the repository.
 2. **Create a branch** for your feature (`git checkout -b feature-name`).
 3. **Commit changes** (`git commit -m 'Added new feature'`).
@@ -130,7 +149,8 @@ We welcome contributions! To contribute:
 
 ---
 
-## 📜 License
+## 📝 License
+
 This project is licensed under the **MIT License**.
 
 ---
