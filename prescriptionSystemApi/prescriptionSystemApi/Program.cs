@@ -113,14 +113,16 @@ var app = builder.Build();
 // Use CORS policy
 app.UseCors("AllowAllOrigins");
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI( options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Prescription API v1");
-    });
-}
+   
+}*/
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Prescription API v1");
+    options.RoutePrefix = string.Empty;
+});
 
 app.UseHttpsRedirection();
 
