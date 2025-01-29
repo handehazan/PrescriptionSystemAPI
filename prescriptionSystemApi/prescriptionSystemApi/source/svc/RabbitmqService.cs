@@ -18,9 +18,15 @@ namespace prescriptionSystemApi.source.svc
                 HostName = configuration["RabbitMQ:HostName"],
                 UserName = configuration["RabbitMQ:UserName"],
                 Password = configuration["RabbitMQ:Password"],
+                VirtualHost = configuration["RabbitMQ:VirtualHost"],
                 DispatchConsumersAsync = true, // Enables async consumers for better performance
                 AutomaticRecoveryEnabled = true, // Enables auto-reconnect in case of failure
-                NetworkRecoveryInterval = TimeSpan.FromSeconds(10) // Retry every 10 sec if disconnected
+                NetworkRecoveryInterval = TimeSpan.FromSeconds(10), // Retry every 10 sec if disconnected
+                Ssl = new SslOption
+                {
+                    Enabled = true, // Ensure SSL is enabled
+                    ServerName = configuration["RabbitMQ:HostName"] // Set the server name
+                }
             };
 
             _connection = factory.CreateConnection();
@@ -96,7 +102,5 @@ namespace prescriptionSystemApi.source.svc
 
             Console.WriteLine("RabbitMQ connection closed.");
         }
-
-
     }
 }

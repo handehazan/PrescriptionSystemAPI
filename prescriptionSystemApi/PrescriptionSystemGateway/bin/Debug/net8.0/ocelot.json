@@ -5,8 +5,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7046
+          "Host": "prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/auth/login",
@@ -17,8 +17,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7046
+          "Host": "prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/medicine/search",
@@ -29,8 +29,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7046
+          "Host": "prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/prescription/create",
@@ -44,8 +44,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7046
+          "Host": "prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/prescription/{patientTC}",
@@ -56,8 +56,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7046
+          "Host": "prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/prescription/medicines/{prescriptionId}",
@@ -68,8 +68,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7046
+          "Host": "prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/prescription/submit",

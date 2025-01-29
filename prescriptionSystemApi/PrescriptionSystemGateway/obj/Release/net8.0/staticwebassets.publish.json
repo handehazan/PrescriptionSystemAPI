@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Hno4VxMbgMteFUSzuEhodsi9TO15wn4MOOUBMiBMsY0=",
+  "Source": "PrescriptionSystemGateway",
+  "BasePath": "_content/PrescriptionSystemGateway",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

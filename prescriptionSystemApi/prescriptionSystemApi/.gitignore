@@ -1,0 +1,77 @@
+# Ignore Visual Studio temporary files, build results, and VS Code workspace settings
+.vs/
+.vscode/
+*.code-workspace
+
+# Ignore .NET build output
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore logs and debug files
+logs/
+*.log
+**/*.log
+*.tlog
+*.cache
+*.pdb
+*.opendb
+
+# Ignore dependencies
+packages/
+node_modules/
+dist/
+tmp/
+temp/
+
+# Ignore secrets and sensitive data
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Ignore compiled binaries
+*.dll
+*.exe
+*.so
+*.dylib
+*.nupkg
+*.snupkg
+
+# Ignore lock files (depending on package manager)
+project.lock.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore Rider / JetBrains IDE settings
+.idea/
+*.iml
+
+# Ignore Docker files (if using Docker)
+docker-compose.override.yml
+*.dockerfile
+
+# Ignore database and cache files
+*.db
+*.sqlite
+*.bak
+*.mdf
+*.ldf
+
+# Ignore Test Results
+TestResults/
+*.trx
+*.coverage
+coverage/
+
+# Ignore generated documentation
+_Documentation/
+
+# Ignore local environment variables
+.env
+.env.local
