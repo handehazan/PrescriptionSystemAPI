@@ -7,7 +7,7 @@ The **Prescription & Doctor Visit System** is a web-based solution that facilita
 
 - Storing and managing **prescriptions** issued by doctors.
 - Managing **medicine records** in a NoSQL database.
-- Sending **notifications** to patients and pharmacies.
+- Sending **notifications** to pharmacies about uncompleted prescriptions.
 - Handling **authentication** for users using **JWT tokens**.
 - **RabbitMQ integration** for message-based communication.
 - **API Gateway** using Ocelot for routing and request handling.
@@ -33,11 +33,11 @@ This system ensures smooth prescription management and medicine tracking by inte
 - **API Gateway:** Ocelot
 - **Database:**
   - **MongoDB Atlas** (for medicine storage)
-  - **Azure SQL Database** (for prescriptions and user data)
+  - **Azure SQL Database** (for prescriptions)
   - **Azure Cache for Redis** (for caching frequently used medicines)
 - **Messaging Queue:** CloudAMQP (RabbitMQ)
 - **Automation:** Azure Logic Apps
-  - **Email Notifications:** Sends emails daily at 1 AM.
+  - **Email Notifications:** Sends emails daily at 1 AM to pharmacies.
   - **Medicine Data Refresh:** Refreshes MongoDB medicines every two weeks on Sundays at 22:00.
 - **Authentication:** JWT (JSON Web Token) for secure API access.
 - **Web Scraping:** HtmlAgilityPack
@@ -120,23 +120,6 @@ Below is the **Entity-Relationship Diagram (ERD)** for the **Prescription System
 
 ---
 
-## 🛋️ Deployment & Setup
-
-### 1️⃣ **Clone the Repository**
-
-```bash
-git clone https://github.com/your-username/prescription-system.git
-cd prescription-system
-```
-
-### 2️⃣ **Run the Application**
-
-```bash
-dotnet run
-```
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! To contribute:
@@ -155,5 +138,5 @@ This project is licensed under the **MIT License**.
 
 ---
 
-🚀 **Now you're ready to start using the Prescription & Doctor Visit System!** 🚀
+🚀 **THANK YOU FOR READING** 🚀
 
