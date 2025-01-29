@@ -16,11 +16,11 @@ The **Prescription & Doctor Visit System** is a web-based solution that facilita
 This system ensures smooth prescription management and medicine tracking by integrating **Azure SQL Database**, **MongoDB Atlas**, **Azure Cache for Redis**, **CloudAMQP (RabbitMQ)**, **Azure Static Web Apps**, and **Azure Logic Apps** for automation.
 
 
-🔗 **You can reach the web site through this link:** https://wonderful-river-0db27400f.4.azurestaticapps.net/index.html
+🔗 **You can reach the web site through this link:** [Web Site](https://wonderful-river-0db27400f.4.azurestaticapps.net/index.html)
 
 🔗 **You can reach the frontend repository through this link:** [Prescription System Frontend](https://github.com/handehazan/PrescriptionSysemFrontend)
 
-🔗 **You can reach the swagger through this link:** https://prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net/index.html
+🔗 **You can reach the swagger through this link:** [Swagger](https://prescriptionsystem-chhsbsebereue3a4.northeurope-01.azurewebsites.net/index.html)
 
 🎥 **Watch the project walkthrough here:** [Project Video](https://youtu.be/Nrh2yDSBDUU)
 
