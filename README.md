@@ -1,5 +1,5 @@
 # Prescription & Doctor Visit System
-The Prescription & Doctor Visit System is a cloud-based web application designed to streamline prescription management for doctors, pharmacies, and patients. The system allows doctors to issue prescriptions, pharmacies to validate and fulfill prescriptions, and pharmacies to receive notifications about their missing submissions.
+The Prescription & Doctor Visit System is a cloud-based web application designed to streamline prescription management for doctors and pharmacies. The system allows doctors to issue prescriptions, pharmacies to validate and fulfill prescriptions, and pharmacies to receive notifications about their missing submissions.
 
 ## 📌 Project Overview
 
